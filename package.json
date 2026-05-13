@@ -1,0 +1,9 @@
+{
+  "name": "yosemite-trip-rsvp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RSVP form for the Yosemite Mist Trail trip",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1f3a2e" />
+<title>Yosemite Mist Trail · Trip RSVP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="hero-meta">
+    <span class="meta-pill">Field Trip № 01</span>
+    <span class="meta-date" id="trip-date">Date TBD</span>
+  </div>
+  <h1 class="hero-title">
+    <span class="title-line-1">Vernal &amp; Nevada</span>
+    <span class="title-line-2">Falls</span>
+  </h1>
+  <p class="hero-sub">via the Mist Trail · Yosemite National Park</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">8.5</span><span class="stat-label">miles total</span></div>
+    <div class="stat"><span class="stat-num">2,200</span><span class="stat-label">ft elevation</span></div>
+    <div class="stat"><span class="stat-num">5h</span><span class="stat-label">on trail</span></div>
+    <div class="stat"><span class="stat-num">Hard</span><span class="stat-label">difficulty</span></div>
+  </div>
+</header>
+
+<main>
+
+<!-- LOGISTICS SECTION -->
+<section class="card logistics">
+  <h2 class="section-title"><span class="num">01</span> The plan</h2>
+
+  <div class="timeline">
+    <div class="t-row">
+      <div class="t-time">3:30<small>AM</small></div>
+      <div class="t-body">
+        <div class="t-title">Depart from my house</div>
+        <div class="t-note">Bring coffee. Address shared in group chat.</div>
+      </div>
+    </div>
+    <div class="t-row">
+      <div class="t-time">7:00<small>AM</small></div>
+      <div class="t-body">
+        <div class="t-title">Arrive · Yosemite Valley</div>
+        <div class="t-note">3.5 hr drive · $35 entrance fee per car</div>
+      </div>
+    </div>
+    <div class="t-row">
+      <div class="t-time">7:30<small>AM</small></div>
+      <div class="t-body">
+        <div class="t-title">Start hike from parking lot</div>
+        <div class="t-note">1.8 mi round trip from lot to trailhead</div>
+      </div>
+    </div>
+    <div class="t-row">
+      <div class="t-time">12:30<small>PM</small></div>
+      <div class="t-body">
+        <div class="t-title">Lunch at the park</div>
+        <div class="t-note">Pack sandwiches · we eat on the trail or after</div>
+      </div>
+    </div>
+    <div class="t-row">
+      <div class="t-time">Late</div>
+      <div class="t-body">
+        <div class="t-title">Drive home · same day</div>
+        <div class="t-note">Roughly 9-10 PM return</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bring">
+    <h3>What to bring</h3>
+    <ul class="bring-list">
+      <li>2L+ water</li>
+      <li>Sandwiches / lunch</li>
+      <li>Snacks for the trail</li>
+      <li>Poncho or rain jacket <small>(Mist Trail = wet)</small></li>
+      <li>Hiking shoes with grip</li>
+      <li>Sunscreen + hat</li>
+      <li>Camp chair <small>(optional, for lunch)</small></li>
+      <li>Layers · cold morning, warm midday</li>
+    </ul>
+  </div>
+</section>
+
+<!-- WHO'S GOING -->
+<section class="card going-section" id="going-section">
+  <h2 class="section-title"><span class="num">02</span> Who's in</h2>
+  <div id="going-list" class="going-list">
+    <div class="going-empty">Be the first to RSVP →</div>
+  </div>
+</section>
+
+<!-- RSVP FORM -->
+<section class="card form-card" id="form-section">
+  <h2 class="section-title"><span class="num">03</span> Are you down?</h2>
+
+  <form id="rsvp-form" novalidate>
+
+    <!-- Name -->
+    <div class="field">
+      <label for="name">Your name</label>
+      <input type="text" id="name" name="name" required autocomplete="name" />
+    </div>
+
+    <!-- Phone -->
+    <div class="field">
+      <label for="phone">Phone <small>(for the group chat)</small></label>
+      <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" />
+    </div>
+
+    <!-- Going? -->
+    <div class="field">
+      <label>Going?</label>
+      <div class="choice-group" data-name="going">
+        <button type="button" class="choice" data-value="yes">🥾 Yes, I'm in</button>
+        <button type="button" class="choice" data-value="maybe">🤔 Maybe</button>
+        <button type="button" class="choice" data-value="no">😔 Can't make it</button>
+      </div>
+      <input type="hidden" name="going" id="going" required />
+    </div>
+
+    <!-- The conditional bits — only shown if going = yes or maybe -->
+    <div id="conditional-section" class="conditional-hidden">
+
+      <!-- Guests -->
+      <div class="field">
+        <label>Bringing a guest?</label>
+        <div class="stepper" data-name="guests">
+          <button type="button" class="step-btn" data-action="dec" aria-label="decrease">−</button>
+          <span class="step-val" id="guests-val">0</span>
+          <button type="button" class="step-btn" data-action="inc" aria-label="increase">+</button>
+        </div>
+        <input type="hidden" name="guests" id="guests" value="0" />
+        <small class="hint">Number of extra people you're bringing</small>
+      </div>
+
+      <!-- Driving situation -->
+      <div class="field">
+        <label>Carpool situation</label>
+        <div class="choice-group stacked" data-name="driving">
+          <button type="button" class="choice stacked-choice" data-value="driving">
+            <span class="ch-title">🚗 I can drive</span>
+            <span class="ch-sub">I'll bring my car and take people</span>
+          </button>
+          <button type="button" class="choice stacked-choice" data-value="riding">
+            <span class="ch-title">🧍 I need a ride</span>
+            <span class="ch-sub">Pick me up from the meetup spot</span>
+          </button>
+          <button type="button" class="choice stacked-choice" data-value="either">
+            <span class="ch-title">🤷 Either works</span>
+            <span class="ch-sub">Happy to drive or ride</span>
+          </button>
+        </div>
+        <input type="hidden" name="driving" id="driving" />
+      </div>
+
+      <!-- Driver details (only if driving) -->
+      <div id="driver-details" class="conditional-hidden">
+        <div class="field">
+          <label>How many seats do you have? <small>(not counting yourself)</small></label>
+          <div class="stepper" data-name="seats">
+            <button type="button" class="step-btn" data-action="dec" aria-label="decrease">−</button>
+            <span class="step-val" id="seats-val">3</span>
+            <button type="button" class="step-btn" data-action="inc" aria-label="increase">+</button>
+          </div>
+          <input type="hidden" name="seats" id="seats" value="3" />
+        </div>
+
+        <div class="field">
+          <label>Gas chip-in preference</label>
+          <div class="choice-group stacked" data-name="gas">
+            <button type="button" class="choice stacked-choice" data-value="treat">
+              <span class="ch-title">My treat</span>
+              <span class="ch-sub">No need to chip in</span>
+            </button>
+            <button type="button" class="choice stacked-choice" data-value="split">
+              <span class="ch-title">Split evenly</span>
+              <span class="ch-sub">Divide gas + $35 park fee</span>
+            </button>
+            <button type="button" class="choice stacked-choice" data-value="amount">
+              <span class="ch-title">Specific amount per person</span>
+              <span class="ch-sub">I'll say below</span>
+            </button>
+          </div>
+          <input type="hidden" name="gas" id="gas" />
+        </div>
+
+        <div class="field" id="gas-amount-field" style="display:none;">
+          <label for="gas-amount">Amount per person ($)</label>
+          <input type="number" id="gas-amount" name="gasAmount" inputmode="numeric" min="0" placeholder="e.g. 20" />
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div class="field">
+        <label for="food">What food are you bringing?</label>
+        <textarea id="food" name="food" rows="2" placeholder="Sandwiches for me + a guest, trail mix to share..."></textarea>
+      </div>
+
+      <!-- Dietary -->
+      <div class="field">
+        <label for="dietary">Dietary restrictions or allergies?</label>
+        <input type="text" id="dietary" name="dietary" placeholder="None / vegetarian / nut allergy..." />
+      </div>
+
+    </div>
+
+    <!-- Notes (always visible) -->
+    <div class="field">
+      <label for="notes">Anything else?</label>
+      <textarea id="notes" name="notes" rows="2" placeholder="Questions, requests, etc."></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="submit-btn" id="submit-btn">
+      <span class="submit-text">Send my RSVP</span>
+      <span class="submit-arrow">→</span>
+    </button>
+
+    <div id="form-error" class="form-error" style="display:none;"></div>
+
+  </form>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Made for the crew · Mist Trail '26</p>
+</footer>
+
+<!-- Success modal -->
+<div id="success-modal" class="modal-overlay" style="display:none;">
+  <div class="modal">
+    <div class="modal-check">✓</div>
+    <h3>You're locked in</h3>
+    <p id="modal-subtitle">See you at 3:30 AM. We'll text you the group chat invite.</p>
+    <div class="modal-going" id="modal-going">
+      <h4>Who else is in:</h4>
+      <div id="modal-going-list"></div>
+    </div>
+    <button type="button" id="modal-close" class="modal-close-btn">Done</button>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
