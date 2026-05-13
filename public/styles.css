@@ -1054,3 +1054,32 @@ main {
     height: 320px;
   }
 }
+
+.bring-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.bring-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* Custom bullet point */
+.bring-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2d3e2d; /* Matches the dark green header in image_5837cd.png */
+  font-weight: bold;
+}
+
+.bring-list small {
+  color: #666;
+  margin-left: 4px;
+}
