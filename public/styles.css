@@ -22,8 +22,8 @@
   --shadow-lg: 0 12px 40px rgba(20, 36, 28, 0.15);
   --radius: 4px;
   --radius-lg: 12px;
-  --serif: 'Fraunces', Georgia, serif;
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -73,17 +73,21 @@ body {
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 80% 20%, rgba(194, 82, 42, 0.18), transparent 50%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(194, 82, 42, 0.18),
+      transparent 50%
+    ),
     radial-gradient(circle at 20% 80%, rgba(90, 111, 76, 0.4), transparent 50%);
   pointer-events: none;
 }
 
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -131,7 +135,8 @@ body {
   font-style: italic;
 }
 
-.title-line-1, .title-line-2 {
+.title-line-1,
+.title-line-2 {
   display: block;
 }
 
@@ -323,7 +328,7 @@ main {
 }
 
 .bring-list li::before {
-  content: '☐';
+  content: "☐";
   position: absolute;
   left: 0;
   top: -1px;
@@ -336,6 +341,229 @@ main {
   font-size: 11px;
   color: var(--ink-muted);
   margin-top: 1px;
+}
+
+/* ============================================
+   TRAIL MAP — Framed topographic treatment
+   ============================================ */
+.map-card {
+  overflow: hidden;
+}
+
+.map-link-text {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rust);
+  text-decoration: none;
+  margin-bottom: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+  border-bottom: 1px solid var(--rust);
+  padding-bottom: 2px;
+}
+
+.map-link-text:hover {
+  color: var(--rust-deep);
+  border-bottom-color: var(--rust-deep);
+}
+
+/* The frame container */
+.map-frame {
+  position: relative;
+  padding: 18px 14px 14px;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-warm),
+    var(--bg) 30%,
+    var(--bg-warm) 100%
+  );
+  border: 1px solid var(--forest);
+  margin-bottom: 20px;
+}
+
+/* Inner double-line effect */
+.map-frame::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--forest);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Corner registration marks — like survey/architectural drawings */
+.map-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 3;
+}
+
+.map-corner::before,
+.map-corner::after {
+  content: "";
+  position: absolute;
+  background: var(--rust);
+}
+
+.map-corner::before {
+  width: 14px;
+  height: 2px;
+  top: 6px;
+  left: 0;
+}
+
+.map-corner::after {
+  width: 2px;
+  height: 14px;
+  top: 0;
+  left: 6px;
+}
+
+.map-corner-tl {
+  top: -1px;
+  left: -1px;
+}
+.map-corner-tr {
+  top: -1px;
+  right: -1px;
+}
+.map-corner-bl {
+  bottom: -1px;
+  left: -1px;
+}
+.map-corner-br {
+  bottom: -1px;
+  right: -1px;
+}
+
+/* Coordinates strip — top right of frame */
+.map-coords {
+  position: relative;
+  z-index: 2;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--forest);
+  text-align: right;
+  margin-bottom: 10px;
+  padding-right: 4px;
+}
+
+.coord-label {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 10px;
+  color: var(--rust);
+  background: var(--cream);
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-right: 2px;
+  letter-spacing: 0.05em;
+}
+
+.coord-sep {
+  color: var(--ink-muted);
+  margin: 0 4px;
+}
+
+/* The actual iframe wrap */
+.map-wrap {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-warm);
+  border: 1px solid var(--forest);
+  overflow: hidden;
+  line-height: 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(251, 248, 240, 0.5),
+    0 2px 8px rgba(20, 36, 28, 0.12);
+}
+
+.alltrails-embed {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: none;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+/* Caption below map */
+.map-caption {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px dashed var(--line-strong);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.map-caption-num {
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+  padding: 2px 6px;
+  border: 1px solid var(--rust);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.map-caption-text {
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+.trail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 2px solid var(--forest);
+  padding-top: 16px;
+}
+
+.trail-row {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+}
+
+.trail-row:last-child {
+  border-bottom: none;
+}
+
+.trail-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  min-width: 60px;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.trail-val {
+  color: var(--ink);
+  flex: 1;
+  line-height: 1.45;
 }
 
 /* ============================================
@@ -392,8 +620,14 @@ main {
 }
 
 @keyframes chipPop {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .going-count {
@@ -446,7 +680,9 @@ main {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
   -webkit-appearance: none;
 }
 
@@ -580,13 +816,17 @@ main {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.35s ease-out, opacity 0.25s 0.1s;
+  transition:
+    max-height 0.35s ease-out,
+    opacity 0.25s 0.1s;
 }
 
 .conditional-visible {
   max-height: 3000px;
   opacity: 1;
-  transition: max-height 0.5s ease-in, opacity 0.25s;
+  transition:
+    max-height 0.5s ease-in,
+    opacity 0.25s;
 }
 
 /* Submit */
@@ -607,7 +847,9 @@ main {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
   box-shadow: var(--shadow-md);
   letter-spacing: 0.01em;
 }
@@ -632,15 +874,23 @@ main {
 }
 
 .submit-btn.loading .submit-text::after {
-  content: '...';
+  content: "...";
   display: inline-block;
   animation: dots 1.4s infinite;
 }
 
 @keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60%, 100% { content: '...'; }
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%,
+  100% {
+    content: "...";
+  }
 }
 
 .form-error {
@@ -669,8 +919,12 @@ main {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal {
@@ -686,8 +940,12 @@ main {
 }
 
 @keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .modal-check {
@@ -787,7 +1045,12 @@ main {
 
 /* Prevent iOS zoom on input focus */
 @media (max-width: 600px) {
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     font-size: 16px !important;
+  }
+  .alltrails-embed {
+    height: 320px;
   }
 }
