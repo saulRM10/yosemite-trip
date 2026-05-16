@@ -1315,3 +1315,64 @@ main {
     display: none;
   }
 }
+
+/* ============================================
+   CONTEXT STRIPS — V2
+   Matches the mockup: italic Fraunces prose,
+   Inter for the bold facts, rust SVG icons.
+   REPLACE the previous .ctx-strip rules.
+   ============================================ */
+
+.ctx-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  font-family: var(--serif);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-muted);
+  margin: -2px 0 12px;
+  line-height: 1.5;
+}
+
+.ctx-strip .ctx-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ctx-strip .ctx-item strong {
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+.ctx-strip .ctx-sep {
+  color: var(--line-strong);
+  font-style: normal;
+}
+
+.ctx-strip .ctx-icon {
+  width: 13px;
+  height: 13px;
+  color: var(--rust);
+  flex-shrink: 0;
+  vertical-align: -2px;
+}
+
+/* Stack on narrow screens */
+@media (max-width: 420px) {
+  .ctx-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .ctx-strip .ctx-sep {
+    display: none;
+  }
+}

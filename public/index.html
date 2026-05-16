@@ -184,16 +184,6 @@
       </section>
 
       <!-- WHO'S GOING -->
-      <!-- <section class="card going-section" id="going-section">
-        <h2 class="section-title">
-          <span class="num">02</span> Who is going ?
-        </h2>
-        <div id="going-list" class="going-list">
-          <div class="going-empty">Be the first to RSVP →</div>
-        </div>
-      </section> -->
-
-      <!-- WHO'S GOING — replace your existing <section class="card going-section"> with this -->
       <section class="card going-section" id="going-section">
         <h2 class="section-title">
           <span class="num">02</span> Who is going ?
@@ -293,6 +283,59 @@
           <!-- Going? -->
           <div class="field">
             <label>Going? <span style="color: #d93025">*</span></label>
+            <div class="ctx-strip">
+              <span class="ctx-item">
+                <svg
+                  class="ctx-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="5" width="16" height="16" rx="2" />
+                  <path d="M16 3v4M8 3v4M4 11h16" />
+                </svg>
+                <strong>Sun May 24</strong>
+              </span>
+              <span class="ctx-sep">·</span>
+              <span class="ctx-item">
+                <svg
+                  class="ctx-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+                Leave <strong>3:30 AM</strong> · Back <strong>~8 PM</strong>
+              </span>
+              <span class="ctx-sep">·</span>
+              <span class="ctx-item">
+                <svg
+                  class="ctx-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M3 20l5-8 4 6 3-4 6 6z" />
+                  <circle cx="17" cy="6" r="2" />
+                </svg>
+                <strong>Hard</strong> · 8.5 mi · 2,200 ft
+              </span>
+            </div>
+
             <div class="choice-group" data-name="going">
               <button type="button" class="choice" data-value="yes">
                 🥾 Yes, I'm in
@@ -338,6 +381,62 @@
             <!-- Driving situation -->
             <div class="field">
               <label>Carpool situation</label>
+              <div class="ctx-strip">
+                <span class="ctx-item">
+                  <svg
+                    class="ctx-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 17h14M5 17v-4l2-5h10l2 5v4M5 17v2M19 17v2" />
+                    <circle cx="8" cy="17" r="1.5" />
+                    <circle cx="16" cy="17" r="1.5" />
+                  </svg>
+                  <strong>~180 mi</strong> each way · 3.5 hr (traffic varies on
+                  return)
+                </span>
+                <span class="ctx-sep">·</span>
+                <span class="ctx-item">
+                  <svg
+                    class="ctx-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 21s-7-7-7-12a7 7 0 1114 0c0 5-7 12-7 12z" />
+                    <circle cx="12" cy="9" r="2.5" />
+                  </svg>
+                  Meetup in
+                  <strong>Royal Oaks · address sent after RSVP</strong>
+                </span>
+                <span class="ctx-sep">·</span>
+                <span class="ctx-item">
+                  <svg
+                    class="ctx-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 8h16v3a2 2 0 000 4v3H4v-3a2 2 0 000-4V8z" />
+                    <path d="M10 8v12" />
+                  </svg>
+                  <strong>$35 park fee</strong> per car
+                </span>
+              </div>
+
               <div class="choice-group stacked" data-name="driving">
                 <button
                   type="button"
@@ -443,6 +542,26 @@
             <!-- Food -->
             <div class="field">
               <label for="food">What food are you bringing?</label>
+              <div class="ctx-strip">
+                <span class="ctx-item">
+                  <svg
+                    class="ctx-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M7 3v9a3 3 0 003 3v6" />
+                    <path d="M11 3v6" />
+                    <path d="M7 9h4" />
+                    <path d="M17 3c-1 0-2 1.5-2 5s1 5 2 5v8" />
+                  </svg>
+                  <strong>Potluck lunch</strong> at the parking lot ~1 PM
+                </span>
+              </div>
               <textarea
                 id="food"
                 name="food"

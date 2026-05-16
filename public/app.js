@@ -376,7 +376,7 @@ function showSuccessModal(payload) {
         "Cool, we'll keep you posted. Lock it in when you know.";
     } else {
       subtitle.textContent =
-        "See you at 3:30 AM. We'll text you the group chat invite.";
+        "See you at 3:30 AM. I'll text you the meetup address and group chat invite within 24 hr.";
     }
     modalGoing.style.display = "block";
 
