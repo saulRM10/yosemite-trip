@@ -1083,3 +1083,235 @@ main {
   color: #666;
   margin-left: 4px;
 }
+
+/* ============================================
+   GOING LIST — REDESIGN
+   Append this. Remove the old .going-list,
+   .going-chip, .going-chip.maybe, .going-chip
+   .guest-badge, .going-chip .driver-icon,
+   and .going-count rules above to avoid conflicts.
+   ============================================ */
+
+/* Headline stats */
+.going-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.going-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.going-stat-num {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--forest);
+  letter-spacing: -0.02em;
+}
+
+.going-stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.going-stat-divider {
+  align-self: stretch;
+  width: 1px;
+  background: var(--line);
+  margin: 4px 0;
+}
+
+/* Group wrapper */
+.going-group {
+  margin-bottom: 20px;
+}
+
+.going-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.going-group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--forest);
+}
+
+.going-group-label.muted {
+  color: var(--ink-muted);
+}
+
+.going-group-icon {
+  font-size: 14px;
+}
+
+/* Driver grid */
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.driver-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  animation: chipPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.driver-card.full {
+  opacity: 0.6;
+}
+
+.driver-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.driver-name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.driver-name-guest {
+  font-weight: 400;
+  color: var(--ink-muted);
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.driver-price {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--forest);
+  white-space: nowrap;
+}
+
+.driver-price.free {
+  color: var(--moss);
+}
+
+.driver-price.split {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.driver-price-unit {
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.driver-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.seat-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.seat-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--forest);
+  flex-shrink: 0;
+}
+
+.seat-dot.empty {
+  background: transparent;
+  border: 1.5px dashed var(--line-strong);
+}
+
+.driver-seats-label {
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.driver-seats-label.full-label {
+  color: var(--rust);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Chip row (riders + maybes) */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.going-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  animation: chipPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.going-pill.maybe {
+  background: transparent;
+  border: 1px dashed var(--line-strong);
+  color: var(--ink-muted);
+}
+
+.going-pill-guest {
+  color: var(--ink-muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* Empty state — keep your existing rule, this just ensures it hides */
+.going-empty {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+/* Tighten the stat divider on narrow screens */
+@media (max-width: 380px) {
+  .going-stats {
+    gap: 14px;
+  }
+  .going-stat-num {
+    font-size: 32px;
+  }
+  .going-stat-divider {
+    display: none;
+  }
+}

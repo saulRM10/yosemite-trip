@@ -184,15 +184,70 @@
       </section>
 
       <!-- WHO'S GOING -->
-      <section class="card going-section" id="going-section">
+      <!-- <section class="card going-section" id="going-section">
         <h2 class="section-title">
           <span class="num">02</span> Who is going ?
         </h2>
         <div id="going-list" class="going-list">
           <div class="going-empty">Be the first to RSVP →</div>
         </div>
-      </section>
+      </section> -->
 
+      <!-- WHO'S GOING — replace your existing <section class="card going-section"> with this -->
+      <section class="card going-section" id="going-section">
+        <h2 class="section-title">
+          <span class="num">02</span> Who is going ?
+        </h2>
+
+        <!-- Headline stats -->
+        <div class="going-stats" id="going-stats">
+          <div class="going-stat">
+            <span class="going-stat-num" id="stat-seats">0</span>
+            <span class="going-stat-label">seats open</span>
+          </div>
+          <div class="going-stat-divider"></div>
+          <div class="going-stat">
+            <span class="going-stat-num" id="stat-drivers">0</span>
+            <span class="going-stat-label">drivers</span>
+          </div>
+          <div class="going-stat-divider"></div>
+          <div class="going-stat">
+            <span class="going-stat-num" id="stat-going">0</span>
+            <span class="going-stat-label">going</span>
+          </div>
+        </div>
+
+        <!-- Driving group -->
+        <div class="going-group" id="going-drivers-group" hidden>
+          <div class="going-group-label">
+            <span class="going-group-icon">🚗</span>
+            <span>Driving</span>
+          </div>
+          <div class="driver-grid" id="driver-grid"></div>
+        </div>
+
+        <!-- Riding group -->
+        <div class="going-group" id="going-riders-group" hidden>
+          <div class="going-group-label">
+            <span class="going-group-icon">🧍</span>
+            <span>Riding · <span id="riders-count">0</span></span>
+          </div>
+          <div class="chip-row" id="rider-chips"></div>
+        </div>
+
+        <!-- Maybe group -->
+        <div class="going-group" id="going-maybes-group" hidden>
+          <div class="going-group-label muted">
+            <span class="going-group-icon">🤔</span>
+            <span>Maybe · <span id="maybes-count">0</span></span>
+          </div>
+          <div class="chip-row" id="maybe-chips"></div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="going-empty" id="going-empty">Be the first to RSVP →</div>
+      </section>
+      
       <!-- RSVP FORM -->
       <section class="card form-card" id="form-section">
         <h2 class="section-title">
